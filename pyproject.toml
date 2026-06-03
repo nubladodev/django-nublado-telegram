@@ -1,0 +1,43 @@
+[project]
+name = "django-nublado-telegram"
+version = "0.1.0"
+description = "A Django app for Telegram bots."
+authors = [
+    {name = "C Nublado"},
+]
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">= 3.12"
+
+dependencies = [
+    "django",
+    "django-nublado-core >=0.3.1, <0.4.0",
+    "python-telegram-bot",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-django",
+    "pytest-mock",
+    "pytest-cov",
+    "pytest-html",
+    "psycopg",
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.support.settings"
+python_files = ["test_*.py"]
+pythonpath = ["."]
+addopts = [
+    "--cov=django_nublado_telegram",
+    "--cov-report=term-missing",
+    # "--html=tests/reports/coverage/pytest.html",
+]
+
