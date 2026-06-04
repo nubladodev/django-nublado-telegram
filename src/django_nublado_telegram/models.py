@@ -3,6 +3,7 @@ from telegram import User, Chat, ChatMember
 from telegram.constants import ChatType, ChatMemberStatus
 
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from django_nublado_core.models import TimestampModel, LanguageModel

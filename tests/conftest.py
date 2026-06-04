@@ -1,5 +1,6 @@
-import pytest
 from types import SimpleNamespace
+
+import pytest
 
 
 @pytest.fixture
@@ -17,3 +18,5 @@ def update():
         ),
         effective_message=SimpleNamespace(message_id=1),
     )
+
+

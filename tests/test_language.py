@@ -2,19 +2,17 @@ import pytest
 
 from django.conf import settings
 
-from django_telegram.services.language import (
+from django_nublado_telegram.services.language import (
     resolve_chat_language,
     set_chat_language,
 )
-from django_telegram.utils.language import (
+from django_nublado_telegram.utils.language import (
     get_context_language,
     set_context_language,
     validate_language_code,
     normalize_language_code,
 )
-from django_telegram.constants import CONTEXT_LANGUAGE_KEY
-
-pytestmark = pytest.mark.asyncio
+from django_nublado_telegram.constants import CONTEXT_LANGUAGE_KEY
 
 
 class TestLanguageUtils:
@@ -48,6 +46,7 @@ class TestLanguageUtils:
 
 class TestLanguageServices:
     @pytest.mark.django_db
+    @pytest.mark.asyncio
     async def test_resolve_chat_language_sets_context(self, update, context):
         language_code = await resolve_chat_language(update, context)
 
@@ -56,6 +55,7 @@ class TestLanguageServices:
         assert language_code == settings.LANGUAGE_CODE
 
     @pytest.mark.django_db
+    @pytest.mark.asyncio
     async def test_resolver_uses_cached_context(self, update, context):
         context.chat_data[CONTEXT_LANGUAGE_KEY] = "es"
 
@@ -64,6 +64,7 @@ class TestLanguageServices:
         assert language_code == "es"
 
     @pytest.mark.django_db
+    @pytest.mark.asyncio
     async def test_language_persists_across_calls(self, update, context):
         # simulate setting language
         await set_chat_language(update, context, "es")

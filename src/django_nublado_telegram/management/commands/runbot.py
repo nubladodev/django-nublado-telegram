@@ -11,7 +11,7 @@ class Command(BaseCommand):
         parser.add_argument("--name", type=str)
 
     def handle(self, *args, **options):
-        if settings.DJANGO_TELEGRAM_BOT_MODE == settings.BOT_MODE_POLLING:
+        if settings.django_nublado_telegram_BOT_MODE == settings.BOT_MODE_POLLING:
             if options["name"]:
                 bot_name = options["name"]
                 bot = registry.get(bot_name)

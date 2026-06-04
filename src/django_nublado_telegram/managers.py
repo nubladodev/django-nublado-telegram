@@ -92,7 +92,7 @@ class TelegramGroupMemberManager(
     Manager for TelegramGroupMember
     """
     def get_or_create_from_chat_member(self, tg_member, tg_chat):
-        from django_telegram.models import (
+        from django_nublado_telegram.models import (
             TelegramUser,
             TelegramChat,
             TelegramGroupMember,

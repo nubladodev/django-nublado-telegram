@@ -11,7 +11,7 @@ requires-python = ">= 3.12"
 
 dependencies = [
     "django",
-    "django-nublado-core >=0.3.1, <0.4.0",
+    "django-nublado-core >=0.4.0, <0.5.0",
     "python-telegram-bot",
 ]
 
@@ -28,16 +28,22 @@ test = [
     "pytest-mock",
     "pytest-cov",
     "pytest-html",
+    "pytest-asyncio",
     "psycopg",
+    "factory-boy",
 ]
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "tests.support.settings"
 python_files = ["test_*.py"]
 pythonpath = ["."]
+
 addopts = [
+    "-vv",
     "--cov=django_nublado_telegram",
     "--cov-report=term-missing",
-    # "--html=tests/reports/coverage/pytest.html",
+    "--cov-report=html:tests/reports/coverage/htmlcov",
+    "--html=tests/reports/coverage/pytest.html",
+    "--self-contained-html",
 ]
 

@@ -4,7 +4,7 @@ from functools import wraps
 from telegram import Update
 from telegram.ext import ContextTypes, ApplicationHandlerStop
 
-from .utils.helpers import is_group, is_private, is_admin, is_group_owner, is_bot_owner
+from .utils.helpers import is_group, is_private, is_admin, is_group_owner
 from .bot_messages import BOT_MESSAGES
 
 
@@ -72,29 +72,6 @@ class PrivateOnly(HandlerPolicy):
             return await self._reply_and_block(
                 update, context, BOT_MESSAGES["error.private_only"]
             )
-        return True
-
-
-class BotOwnerOnly(HandlerPolicy):
-    async def check(
-        self,
-        update: Update,
-        context: ContextTypes.DEFAULT_TYPE,
-    ) -> bool:
-
-        tg_chat = update.effective_chat
-        tg_user = update.effective_user
-
-        if not tg_chat or not tg_user:
-            return False
-
-        if not is_bot_owner(tg_user):
-            return await self._reply_and_block(
-                update,
-                context,
-                BOT_MESSAGES["error.bot_owner_access"],
-            )
-
         return True
 
 

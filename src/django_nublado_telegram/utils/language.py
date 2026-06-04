@@ -1,5 +1,7 @@
 from telegram.ext import ContextTypes
 
+from django_nublado_core.utils import get_languages_dict
+
 from django.conf import settings
 
 from ..constants import CONTEXT_LANGUAGE_KEY
@@ -14,7 +16,8 @@ def set_context_language(context: ContextTypes.DEFAULT_TYPE, language_code: str)
 
 
 def validate_language_code(language_code: str):
-    return language_code in settings.LANGUAGES_DICT
+    languages_dict = get_languages_dict()
+    return language_code in languages_dict
 
 
 def normalize_language_code(language_code: str):

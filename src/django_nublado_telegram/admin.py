@@ -1,5 +1,3 @@
-from import_export.admin import ImportExportModelAdmin
-
 from django.contrib import admin
 
 from .models import (
@@ -11,7 +9,7 @@ from .models import (
 
 
 @admin.register(TelegramChat)
-class TelegramChatAdmin(ImportExportModelAdmin):
+class TelegramChatAdmin(admin.ModelAdmin):
 
     list_display = (
         "id",
@@ -39,7 +37,7 @@ class TelegramChatAdmin(ImportExportModelAdmin):
 
 
 @admin.register(TelegramUser)
-class TelegramUserAdmin(ImportExportModelAdmin):
+class TelegramUserAdmin(admin.ModelAdmin):
     list_display = [
         "id",
         "username",
@@ -68,7 +66,7 @@ class TelegramUserAdmin(ImportExportModelAdmin):
 
 
 @admin.register(TelegramGroupSettings)
-class TelegramGroupSettingsAdmin(ImportExportModelAdmin):
+class TelegramGroupSettingsAdmin(admin.ModelAdmin):
     list_display = (
         "chat",
         "language",
@@ -83,7 +81,7 @@ class TelegramGroupSettingsAdmin(ImportExportModelAdmin):
 
 
 @admin.register(TelegramGroupMember)
-class TelegramGroupMemberAdmin(ImportExportModelAdmin):
+class TelegramGroupMemberAdmin(admin.ModelAdmin):
     list_display = (
         "chat",
         "user",

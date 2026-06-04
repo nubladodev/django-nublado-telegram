@@ -1,7 +1,6 @@
-from telegram import Chat, ChatMember, User
+from telegram import Chat, ChatMember
 from telegram.constants import ChatType, ChatMemberStatus
 
-from django.conf import settings
 
 
 # Helper functions
@@ -22,10 +21,6 @@ def is_admin(tg_member: ChatMember):
 
 def is_group_owner(tg_member: ChatMember):
     return tg_member.status == ChatMemberStatus.OWNER
-
-
-def is_bot_owner(tg_user: User):
-    return tg_user.id == settings.NUBLADO_BOT_OWNER_ID
 
 
 def message_link(tg_chat_id: str, tg_message_id: str):

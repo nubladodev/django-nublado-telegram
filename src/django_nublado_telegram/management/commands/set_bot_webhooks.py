@@ -3,7 +3,7 @@ import logging
 
 from django.core.management.base import BaseCommand
 
-from django_telegram.bot_registry import registry
+from django_nublado_telegram.bot_registry import registry
 
 logger = logging.getLogger("django")
 

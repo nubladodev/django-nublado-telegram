@@ -1,7 +1,7 @@
 import pytest
 from types import SimpleNamespace
 
-from django_telegram.utils.formatting import user_display_name
+from django_nublado_telegram.utils.formatting import user_display_name
 
 
 @pytest.mark.parametrize(

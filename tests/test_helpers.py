@@ -2,7 +2,7 @@ from types import SimpleNamespace
 
 from telegram.constants import ChatType, ChatMemberStatus
 
-from django_telegram.utils.helpers import (
+from django_nublado_telegram.utils.helpers import (
     is_group,
     is_private,
     is_admin,
@@ -12,9 +12,7 @@ from django_telegram.utils.helpers import (
 
 
 class TestHelpers:
-    def test_is_bot_owner(self):
-        assert False
-
+  
     def test_is_group_and_is_private(self):
         group_chat = SimpleNamespace(type=ChatType.GROUP)
         supergroup_chat = SimpleNamespace(type=ChatType.SUPERGROUP)

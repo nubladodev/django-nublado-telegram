@@ -82,7 +82,7 @@ class Migration(migrations.Migration):
                     models.OneToOneField(
                         on_delete=django.db.models.deletion.CASCADE,
                         related_name="settings",
-                        to="django_telegram.telegramchat",
+                        to="django_nublado_telegram.telegramchat",
                     ),
                 ),
             ],
@@ -124,7 +124,7 @@ class Migration(migrations.Migration):
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
                         related_name="members",
-                        to="django_telegram.telegramchat",
+                        to="django_nublado_telegram.telegramchat",
                     ),
                 ),
                 (
@@ -132,7 +132,7 @@ class Migration(migrations.Migration):
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
                         related_name="memberships",
-                        to="django_telegram.telegramuser",
+                        to="django_nublado_telegram.telegramuser",
                     ),
                 ),
             ],
