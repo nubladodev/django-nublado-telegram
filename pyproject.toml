@@ -47,3 +47,10 @@ addopts = [
     "--self-contained-html",
 ]
 
+[tool.coverage.run]
+omit = [
+    "*/migrations/*",
+    "*/__init__.py",
+    "*/apps.py",
+]
+

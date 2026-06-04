@@ -4,8 +4,9 @@ from functools import wraps
 from telegram import Update
 from telegram.ext import ContextTypes, ApplicationHandlerStop
 
+from django.utils.translation import gettext_lazy as _
+
 from .utils.helpers import is_group, is_private, is_admin, is_group_owner
-from .bot_messages import BOT_MESSAGES
 
 
 class HandlerPolicy(ABC):
@@ -56,7 +57,9 @@ class GroupOnly(HandlerPolicy):
         tg_chat = update.effective_chat
         if not tg_chat or not is_group(tg_chat):
             return await self._reply_and_block(
-                update, context, BOT_MESSAGES["error.group_only"]
+                update,
+                context,
+                _("Must be group chat.")
             )
         return True
 
@@ -70,7 +73,9 @@ class PrivateOnly(HandlerPolicy):
         tg_chat = update.effective_chat
         if not tg_chat or not is_private(tg_chat):
             return await self._reply_and_block(
-                update, context, BOT_MESSAGES["error.private_only"]
+                update,
+                context,
+                _("Must be private chat.")
             )
         return True
 
@@ -100,7 +105,7 @@ class AdminOnly(HandlerPolicy):
             return await self._reply_and_block(
                 update,
                 context,
-                BOT_MESSAGES["error.admin_access"],
+                _("Must be admin."),
             )
 
         return True
@@ -118,7 +123,9 @@ class GroupOwnerOnly(HandlerPolicy):
 
         if not tg_chat or not is_group(tg_chat):
             return await self._reply_and_block(
-                update, context, BOT_MESSAGES["error.group_only"]
+                update,
+                context,
+                _("Must be group owner.")
             )
 
         if not tg_user:
@@ -135,7 +142,7 @@ class GroupOwnerOnly(HandlerPolicy):
             return await self._reply_and_block(
                 update,
                 context,
-                BOT_MESSAGES["error.group_owner_access"],
+                _("Must be group owner."),
             )
 
         return True

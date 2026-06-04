@@ -1,6 +1,5 @@
 import logging
 
-
 from .bot import TelegramBot
 
 logger = logging.getLogger("django")
