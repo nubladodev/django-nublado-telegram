@@ -1,19 +1,40 @@
 from dataclasses import dataclass
+from enum import StrEnum
 
 from django.conf import settings as django_settings
 
 from django_nublado_core.conf.base import AppSettings
 
+
+class BotMode(StrEnum):
+    POLLING = "polling"
+    WEBHOOK = "webhook"
+
+
 # The app's settings dict name
 SETTINGS_DICT_NAME = "DJANGO_NUBLADO_TELEGRAM"
 
 # The app settings default values.
-SETTINGS_DEFAULTS = {"SOURCE_LANGUAGE": django_settings.LANGUAGE_CODE}
+SETTINGS_DEFAULTS = {
+    "BOT_MODE": BotMode.POLLING,
+}
 
 
 @dataclass(frozen=True)
 class AppData:
-    SOURCE_LANGUAGE: str
+    BOT_MODE: BotMode
+
+    def __post_init__(self):
+        try:
+            object.__setattr__(
+                self,
+                "BOT_MODE",
+                BotMode(self.BOT_MODE),
+            )
+        except ValueError as e:
+            raise ImproperlyConfigured(
+                f"Invalid BOT_MODE: {self.BOT_MODE}"
+            ) from e
 
 
 app_settings = AppSettings(

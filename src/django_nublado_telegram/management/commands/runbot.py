@@ -2,6 +2,10 @@ from django.core.management.base import BaseCommand
 from django.conf import settings
 
 from ...bot_registry import registry
+from ...conf.app_settings import (
+    app_settings,
+    BotMode,
+)
 
 
 class Command(BaseCommand):
@@ -11,7 +15,7 @@ class Command(BaseCommand):
         parser.add_argument("--name", type=str)
 
     def handle(self, *args, **options):
-        if settings.django_nublado_telegram_BOT_MODE == settings.BOT_MODE_POLLING:
+        if app_settings.BOT_MODE == BotMode.POLLING:
             if options["name"]:
                 bot_name = options["name"]
                 bot = registry.get(bot_name)
