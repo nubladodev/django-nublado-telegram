@@ -7,8 +7,6 @@ from django.db import transaction, IntegrityError
 from django.utils import timezone
 
 from django_nublado_telegram.models import (
-    TelegramUser,
-    TelegramChat,
     TelegramGroupMember,
 )
 
