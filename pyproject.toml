@@ -1,6 +1,6 @@
 [project]
 name = "django-nublado-telegram"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Django app for Telegram bots."
 authors = [
     {name = "C Nublado"},
