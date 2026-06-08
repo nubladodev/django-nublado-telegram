@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from enum import StrEnum
 
-
 from django_nublado_core.conf.base import AppSettings
 
 
