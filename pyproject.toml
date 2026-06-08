@@ -6,7 +6,8 @@ authors = [
     {name = "C Nublado"},
 ]
 readme = "README.md"
-license = {file = "LICENSE"}
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
 requires-python = ">= 3.12"
 
 dependencies = [
