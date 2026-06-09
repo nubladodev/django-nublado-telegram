@@ -1,12 +1,17 @@
 
 # django-nublado-telegram
 
-An app for Telegram bots in Django using the python-telegram-bot library.
+A Django app for building Telegram bots using [`python-telegram-bot`](https://github.com/python-telegram-bot/python-telegram-bot).
 
 ---
 
 ## Features
-
+- Bot registry system
+- Webhook Django view
+- Bot lifecycle management
+- Handler policy system
+- Async-safe
+- Job utilities (scheduled message cleanup)
 
 ---
 
@@ -22,8 +27,12 @@ INSTALLED_APPS = [
     "django_nublado_telegram",
 ]
 ```
-
 ---
+
+## Requirements
+- Python 3.12
+- python-telegram-bot
+- django-nublado-core
 
 ## Models
 
