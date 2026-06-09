@@ -18,8 +18,8 @@ class BotRegistry:
         except KeyError:
             raise ValueError(f"Bot '{name}' not found")
 
-    def all(self):
-        return self._bots.values()
+    def all(self) -> list[TelegramBot]:
+        return list(self._bots.values())
 
 
 registry = BotRegistry()

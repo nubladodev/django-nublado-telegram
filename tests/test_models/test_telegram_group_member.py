@@ -9,7 +9,6 @@ from django.utils import timezone
 from django_nublado_telegram.models import (
     TelegramGroupMember,
 )
-
 from ..support.factories import (
     TelegramUserFactory,
     TelegramChatFactory,

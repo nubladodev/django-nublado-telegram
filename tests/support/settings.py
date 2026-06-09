@@ -72,3 +72,5 @@ LOGGING = {
         },
     },
 }
+
+DJANGO_NUBLADO_TELEGRAM = {}

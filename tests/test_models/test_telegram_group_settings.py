@@ -4,7 +4,6 @@ from django.db import transaction, IntegrityError
 from django.conf import settings as django_settings
 
 from django_nublado_telegram.models import TelegramGroupSettings
-
 from ..support.factories import TelegramChatFactory
 
 

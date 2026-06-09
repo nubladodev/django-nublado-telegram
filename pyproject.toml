@@ -43,9 +43,9 @@ addopts = [
     "-vv",
     "--cov=django_nublado_telegram",
     "--cov-report=term-missing",
-    "--cov-report=html:tests/reports/coverage/htmlcov",
-    "--html=tests/reports/coverage/pytest.html",
-    "--self-contained-html",
+    # "--cov-report=html:tests/reports/coverage/htmlcov",
+    # "--html=tests/reports/coverage/pytest.html",
+    # "--self-contained-html",
 ]
 
 [tool.coverage.run]

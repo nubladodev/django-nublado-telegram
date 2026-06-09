@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from enum import StrEnum
 
+from django.core.exceptions import ImproperlyConfigured
+
 from django_nublado_core.conf.base import AppSettings
 
 
@@ -24,6 +26,8 @@ class AppData:
 
     def __post_init__(self):
         try:
+            # Convert string to an enum option ("webhook" -> BotMode.WEBHOOK),
+            # and raise an exception if the string value isn't a valid option.
             object.__setattr__(
                 self,
                 "BOT_MODE",

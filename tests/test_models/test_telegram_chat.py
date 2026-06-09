@@ -3,7 +3,6 @@ from types import SimpleNamespace
 import pytest
 
 from django_nublado_telegram.models import TelegramChat
-
 from ..support.factories import TelegramChatFactory
 
 
@@ -159,10 +158,8 @@ class TestTelegramChat:
 
         updated = chat.update_snapshot(tg_chat)
 
-        # 1. diff contract
         assert set(updated) == set(expected_fields)
 
-        # 2. persistence contract
         chat.refresh_from_db()
 
         for field, value in expected_state.items():

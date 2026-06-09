@@ -3,7 +3,6 @@ from types import SimpleNamespace
 import pytest
 
 from django_nublado_telegram.models import TelegramUser
-
 from ..support.factories import TelegramUserFactory
 
 
