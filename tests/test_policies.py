@@ -1,6 +1,6 @@
 import pytest
 
-from telegram.ext import ContextTypes, ApplicationHandlerStop
+from telegram.ext import ApplicationHandlerStop
 
 from django_nublado_telegram.policies import (
     GroupOnly,
